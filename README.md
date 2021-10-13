@@ -4,6 +4,8 @@ A Flutter project which is created by Bloc/Cubits.
 The differ from the other bloc login projects, this project has social login instances and sign up properties.
 Additionally, this project has landing page. When you open the app, firstly it controls the auth statement. If you have already logged in, home page will start, but if you are not, then you will start sign in page.
 
+Here you can reach the medium article of the project: https://medium.com/@sahinefe/bloc-pattern-for-login-bloc-login-in-flutter-551fd05beb99
+
 ## Mini Notes
 If you want to use Apple sign in and Twitter sign in methods, you need to configure them from firestore. Twitter and Apple must give  developer permits to you.
 
