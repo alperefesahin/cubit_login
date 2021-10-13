@@ -5,7 +5,7 @@ The differ from the other bloc login projects, this project has social login ins
 Additionally, this project has landing page. When you open the app, firstly it controls the auth statement. If you have already logged in, home page will start, but if you are not, then you will start sign in page.
 
 ## Mini Notes
-If you want to use Apple sign in and Twtitter sign in methods, you need to configure them from firestore. Twitter and Apple must give  developer permits to you.
+If you want to use Apple sign in and Twitter sign in methods, you need to configure them from firestore. Twitter and Apple must give  developer permits to you.
 
 ## Gifs and Screenshots from the app
 ![sign up](https://user-images.githubusercontent.com/67283777/137185403-3dde3c7e-ee01-490c-9570-359a032a9830.gif)
