@@ -1,4 +1,4 @@
-# bloc_login
+# cubit_login
 
 A Flutter project which is created by Bloc/Cubits.
 The differ from the other bloc login projects, this project has social login instances and sign up properties.
