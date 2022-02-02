@@ -31,6 +31,7 @@ dependencies:
   flutter_bloc: ^7.3.0
   firebase_auth_oauth: ^1.1.0
   freezed_annotation: ^1.1.0
+  flow_builder: ^0.0.6
 
   flutter:
     sdk: flutter
