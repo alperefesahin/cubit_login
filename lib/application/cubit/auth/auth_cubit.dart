@@ -1,16 +1,17 @@
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'auth_state.dart';
+part 'auth_cubit.freezed.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(const AuthState(isSignedIn: false)) {
+  AuthCubit() : super(const AuthState.initial(isSignedIn: false)) {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
-        emit(copyWith(isSignedIn: false));
+        return emit(state.copyWith(isSignedIn: false));
       } else {
-        emit(copyWith(isSignedIn: true));
+        emit(state.copyWith(isSignedIn: true));
       }
     });
   }

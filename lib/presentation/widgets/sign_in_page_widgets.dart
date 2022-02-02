@@ -1,4 +1,4 @@
-import 'package:bloc_login/application/auth/login/login_cubit.dart';
+import 'package:bloc_login/application/cubit/login/login_cubit.dart';
 import 'package:bloc_login/domain/auth_models/auth_text_field.dart';
 import 'package:bloc_login/domain/auth_models/email.dart';
 import 'package:bloc_login/domain/auth_models/password.dart';
@@ -63,7 +63,6 @@ Widget PasswordInputField() {
 
 Widget Login() {
   return BlocBuilder<LoginCubit, LoginState>(
-    buildWhen: (previous, current) => previous.status != current.status,
     builder: (context, state) {
       return Padding(
           padding: const EdgeInsets.only(top: 15),
@@ -101,7 +100,6 @@ Widget SignUpButton(context) {
 
 Widget ForgotPassword() {
   return BlocBuilder<LoginCubit, LoginState>(
-    buildWhen: (previous, current) => previous.status != current.status,
     builder: (context, state) {
       return Padding(
         padding: const EdgeInsets.only(top: 15, left: 5),
@@ -116,7 +114,9 @@ Widget ForgotPassword() {
               ),
             ),
             color: Colors.blueAccent,
-            onPressed: () => context.read<LoginCubit>().resetPassword()),
+            onPressed: () {
+              context.read<LoginCubit>().resetPassword();
+            }),
       );
     },
   );
@@ -180,5 +180,19 @@ Widget SignInWithMicrosoft() {
               onPressed: () =>
                   context.read<LoginCubit>().signInWithMicrosoft()));
     },
+  );
+}
+
+SnackBar SnackBarWhenSuccess() {
+  return const SnackBar(
+    content: Text("Success!"),
+    backgroundColor: Colors.green,
+  );
+}
+
+SnackBar SnackBarWhenFailure({required String snackBarFailureText}) {
+  return SnackBar(
+    content: Text(snackBarFailureText),
+    backgroundColor: Colors.red,
   );
 }

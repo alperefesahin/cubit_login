@@ -1,4 +1,4 @@
-import 'package:bloc_login/application/auth/auth_cubit.dart';
+import 'package:bloc_login/application/cubit/auth/auth_cubit.dart';
 import 'package:bloc_login/presentation/pages/landing_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

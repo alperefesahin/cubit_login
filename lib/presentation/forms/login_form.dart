@@ -1,4 +1,4 @@
-import 'package:bloc_login/application/auth/login/login_cubit.dart';
+import 'package:bloc_login/application/cubit/login/login_cubit.dart';
 import 'package:bloc_login/presentation/widgets/sign_in_page_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,19 +12,13 @@ class LoginForm extends StatelessWidget {
     return BlocProvider(
       create: (context) => LoginCubit(),
       child: BlocConsumer<LoginCubit, LoginState>(
+          listenWhen: (p, c) => p.status != c.status,
           listener: (context, state) {
             if (state.status.isSubmissionFailure) {
-              var snackBar = SnackBar(
-                content: Text(state.exceptionError),
-                backgroundColor: Colors.red,
-              );
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              ScaffoldMessenger.of(context).showSnackBar(SnackBarWhenFailure(
+                  snackBarFailureText: state.exceptionError));
             } else if (state.status.isSubmissionSuccess) {
-              var snackBar = const SnackBar(
-                content: Text("Success!"),
-                backgroundColor: Colors.green,
-              );
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              ScaffoldMessenger.of(context).showSnackBar(SnackBarWhenSuccess());
             }
           },
           builder: (context, state) => Stack(
