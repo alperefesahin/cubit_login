@@ -1,8 +1,8 @@
 # cubit_login
 
 A Flutter project which is created by Cubit/BLoC and Firebase.
-The differ from the other bloc login projects, this project has social login instances and sign up properties.
-Additionally, this project has landing page. When you open the app, firstly it controls the auth statement. If you have already logged in, home page will start, but if you are not, then you will start sign in page.
+The differ from the other bloc login projects, this project has social login instances and sign up properties, and while It does this, It uses freezed package which is very helpful for the state management. Also there are snackbars for the error handling, and login processes. For instance If you try to sign up with existing account, snackbar will give an error.
+Additionally, thanks to flow_builder package, we can check via state, is user signed in or not, and with this, we can route the user. If you have already logged in, home page will start, but if you are not, then you will start sign in page.
 
 Here you can reach the medium article of the project: https://medium.com/@sahinefe/bloc-pattern-for-login-bloc-login-in-flutter-551fd05beb99
 
