@@ -15,8 +15,6 @@ Here you can reach the medium article of the project: https://medium.com/@sahine
   
   *formz
   
-  *equatable
-  
   *firebase_core
   
   *firebase_auth
