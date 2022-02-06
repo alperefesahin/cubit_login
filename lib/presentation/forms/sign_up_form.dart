@@ -37,6 +37,7 @@ class SignUpForm extends StatelessWidget {
                         NameInputField(),
                         EmailInputField(),
                         PasswordInputField(),
+                        RePasswordInputField(),
                         SignUp(),
                       ],
                     ),

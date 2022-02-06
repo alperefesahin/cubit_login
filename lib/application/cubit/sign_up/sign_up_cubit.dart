@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:bloc_login/domain/auth_models/email.dart';
 import 'package:bloc_login/domain/auth_models/name.dart';
 import 'package:bloc_login/domain/auth_models/password.dart';
+import 'package:bloc_login/domain/auth_models/re_password.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:formz/formz.dart';
@@ -19,7 +20,8 @@ class SignUpCubit extends Cubit<SignUpState> {
     final email = Email.dirty(value);
     emit(state.copyWith(
       email: email,
-      status: Formz.validate([state.name, email, state.password]),
+      status:
+          Formz.validate([state.name, email, state.password, state.rePassword]),
     ));
   }
 
@@ -27,7 +29,17 @@ class SignUpCubit extends Cubit<SignUpState> {
     final password = Password.dirty(value);
     emit(state.copyWith(
       password: password,
-      status: Formz.validate([state.name, state.email, password]),
+      status:
+          Formz.validate([state.name, state.email, password, state.rePassword]),
+    ));
+  }
+
+  void rePasswordChanged(String value) {
+    final rePassword = RePassword.dirty(value);
+    emit(state.copyWith(
+      rePassword: rePassword,
+      status:
+          Formz.validate([state.name, state.email, state.password, rePassword]),
     ));
   }
 

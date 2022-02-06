@@ -21,12 +21,14 @@ class _$SignUpStateTearOff {
   _Initial initial(
       {Email email = const Email.pure(),
       Password password = const Password.pure(),
+      RePassword rePassword = const RePassword.pure(),
       FormzStatus status = FormzStatus.pure,
       Name name = const Name.pure(),
       String exceptionError = ''}) {
     return _Initial(
       email: email,
       password: password,
+      rePassword: rePassword,
       status: status,
       name: name,
       exceptionError: exceptionError,
@@ -41,28 +43,34 @@ const $SignUpState = _$SignUpStateTearOff();
 mixin _$SignUpState {
   Email get email => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
+  RePassword get rePassword => throw _privateConstructorUsedError;
   FormzStatus get status => throw _privateConstructorUsedError;
   Name get name => throw _privateConstructorUsedError;
   String get exceptionError => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Email email, Password password,
-            FormzStatus status, Name name, String exceptionError)
+    required TResult Function(
+            Email email,
+            Password password,
+            RePassword rePassword,
+            FormzStatus status,
+            Name name,
+            String exceptionError)
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Email email, Password password, FormzStatus status,
-            Name name, String exceptionError)?
+    TResult Function(Email email, Password password, RePassword rePassword,
+            FormzStatus status, Name name, String exceptionError)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Email email, Password password, FormzStatus status,
-            Name name, String exceptionError)?
+    TResult Function(Email email, Password password, RePassword rePassword,
+            FormzStatus status, Name name, String exceptionError)?
         initial,
     required TResult orElse(),
   }) =>
@@ -97,6 +105,7 @@ abstract class $SignUpStateCopyWith<$Res> {
   $Res call(
       {Email email,
       Password password,
+      RePassword rePassword,
       FormzStatus status,
       Name name,
       String exceptionError});
@@ -114,6 +123,7 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
   $Res call({
     Object? email = freezed,
     Object? password = freezed,
+    Object? rePassword = freezed,
     Object? status = freezed,
     Object? name = freezed,
     Object? exceptionError = freezed,
@@ -127,6 +137,10 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
+      rePassword: rePassword == freezed
+          ? _value.rePassword
+          : rePassword // ignore: cast_nullable_to_non_nullable
+              as RePassword,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -151,6 +165,7 @@ abstract class _$InitialCopyWith<$Res> implements $SignUpStateCopyWith<$Res> {
   $Res call(
       {Email email,
       Password password,
+      RePassword rePassword,
       FormzStatus status,
       Name name,
       String exceptionError});
@@ -169,6 +184,7 @@ class __$InitialCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
   $Res call({
     Object? email = freezed,
     Object? password = freezed,
+    Object? rePassword = freezed,
     Object? status = freezed,
     Object? name = freezed,
     Object? exceptionError = freezed,
@@ -182,6 +198,10 @@ class __$InitialCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
+      rePassword: rePassword == freezed
+          ? _value.rePassword
+          : rePassword // ignore: cast_nullable_to_non_nullable
+              as RePassword,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -200,13 +220,15 @@ class __$InitialCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
+class _$_Initial extends _Initial {
   const _$_Initial(
       {this.email = const Email.pure(),
       this.password = const Password.pure(),
+      this.rePassword = const RePassword.pure(),
       this.status = FormzStatus.pure,
       this.name = const Name.pure(),
-      this.exceptionError = ''});
+      this.exceptionError = ''})
+      : super._();
 
   @JsonKey()
   @override
@@ -214,6 +236,9 @@ class _$_Initial implements _Initial {
   @JsonKey()
   @override
   final Password password;
+  @JsonKey()
+  @override
+  final RePassword rePassword;
   @JsonKey()
   @override
   final FormzStatus status;
@@ -226,7 +251,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'SignUpState.initial(email: $email, password: $password, status: $status, name: $name, exceptionError: $exceptionError)';
+    return 'SignUpState.initial(email: $email, password: $password, rePassword: $rePassword, status: $status, name: $name, exceptionError: $exceptionError)';
   }
 
   @override
@@ -236,6 +261,8 @@ class _$_Initial implements _Initial {
             other is _Initial &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.rePassword, rePassword) &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
@@ -247,6 +274,7 @@ class _$_Initial implements _Initial {
       runtimeType,
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(rePassword),
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(exceptionError));
@@ -259,33 +287,39 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Email email, Password password,
-            FormzStatus status, Name name, String exceptionError)
+    required TResult Function(
+            Email email,
+            Password password,
+            RePassword rePassword,
+            FormzStatus status,
+            Name name,
+            String exceptionError)
         initial,
   }) {
-    return initial(email, password, status, name, exceptionError);
+    return initial(email, password, rePassword, status, name, exceptionError);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Email email, Password password, FormzStatus status,
-            Name name, String exceptionError)?
+    TResult Function(Email email, Password password, RePassword rePassword,
+            FormzStatus status, Name name, String exceptionError)?
         initial,
   }) {
-    return initial?.call(email, password, status, name, exceptionError);
+    return initial?.call(
+        email, password, rePassword, status, name, exceptionError);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Email email, Password password, FormzStatus status,
-            Name name, String exceptionError)?
+    TResult Function(Email email, Password password, RePassword rePassword,
+            FormzStatus status, Name name, String exceptionError)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(email, password, status, name, exceptionError);
+      return initial(email, password, rePassword, status, name, exceptionError);
     }
     return orElse();
   }
@@ -319,18 +353,22 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements SignUpState {
+abstract class _Initial extends SignUpState {
   const factory _Initial(
       {Email email,
       Password password,
+      RePassword rePassword,
       FormzStatus status,
       Name name,
       String exceptionError}) = _$_Initial;
+  const _Initial._() : super._();
 
   @override
   Email get email;
   @override
   Password get password;
+  @override
+  RePassword get rePassword;
   @override
   FormzStatus get status;
   @override

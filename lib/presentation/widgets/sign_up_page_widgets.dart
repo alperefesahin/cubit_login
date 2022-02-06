@@ -1,4 +1,3 @@
-
 import 'package:bloc_login/application/cubit/sign_up/sign_up_cubit.dart';
 import 'package:bloc_login/domain/auth_models/auth_text_field.dart';
 import 'package:bloc_login/domain/auth_models/email.dart';
@@ -60,6 +59,23 @@ Widget PasswordInputField() {
         error: state.password.error?.name,
         onChanged: (password) =>
             context.read<SignUpCubit>().passwordChanged(password),
+      );
+    },
+  );
+}
+
+Widget RePasswordInputField() {
+  return BlocBuilder<SignUpCubit, SignUpState>(
+    buildWhen: (previous, current) => previous.password != current.password,
+    builder: (context, state) {
+      return AuthTextField(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        hint: 'Re-Password',
+        isPasswordField: true,
+        keyboardType: TextInputType.text,
+        error: state.password.error?.name,
+        onChanged: (rePassword) =>
+            context.read<SignUpCubit>().rePasswordChanged(rePassword),
       );
     },
   );
