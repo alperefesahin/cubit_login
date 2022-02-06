@@ -13,7 +13,7 @@ class RePassword extends FormzInput<String, RePasswordValidationError> {
     if (value.isEmpty) {
       return RePasswordValidationError.empty;
     }
-    return _rePasswordRegExp.hasMatch(value)
+    return _rePasswordRegExp.hasMatch(value) && value.length < 10
         ? null
         : RePasswordValidationError.invalid;
   }

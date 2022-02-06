@@ -2,11 +2,11 @@ import 'package:bloc_login/application/cubit/sign_up/sign_up_cubit.dart';
 import 'package:bloc_login/domain/auth_models/auth_text_field.dart';
 import 'package:bloc_login/domain/auth_models/email.dart';
 import 'package:bloc_login/domain/auth_models/password.dart';
+import 'package:bloc_login/domain/auth_models/re_password.dart';
 import 'package:bloc_login/domain/auth_models/name.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:formz/formz.dart';
 
 Widget SignUpText() {
   return const Padding(
@@ -49,7 +49,6 @@ Widget EmailInputField() {
 
 Widget PasswordInputField() {
   return BlocBuilder<SignUpCubit, SignUpState>(
-    buildWhen: (previous, current) => previous.password != current.password,
     builder: (context, state) {
       return AuthTextField(
         padding: const EdgeInsets.symmetric(vertical: 10),
@@ -66,14 +65,13 @@ Widget PasswordInputField() {
 
 Widget RePasswordInputField() {
   return BlocBuilder<SignUpCubit, SignUpState>(
-    buildWhen: (previous, current) => previous.password != current.password,
     builder: (context, state) {
       return AuthTextField(
         padding: const EdgeInsets.symmetric(vertical: 10),
         hint: 'Re-Password',
         isPasswordField: true,
         keyboardType: TextInputType.text,
-        error: state.password.error?.name,
+        error: state.rePassword.error?.name,
         onChanged: (rePassword) =>
             context.read<SignUpCubit>().rePasswordChanged(rePassword),
       );
@@ -83,7 +81,6 @@ Widget RePasswordInputField() {
 
 Widget SignUp() {
   return BlocBuilder<SignUpCubit, SignUpState>(
-    buildWhen: (previous, current) => previous.status != current.status,
     builder: (context, state) {
       return Padding(
         padding: const EdgeInsets.only(top: 20),
@@ -92,7 +89,7 @@ Widget SignUp() {
           child: const Text('Sign Up'),
           disabledColor: Colors.blueAccent.withOpacity(0.6),
           color: Colors.blueAccent,
-          onPressed: state.status.isValidated
+          onPressed: state.displaySignUpButton
               ? () => context.read<SignUpCubit>().signUpWithCredentials()
               : null,
         ),

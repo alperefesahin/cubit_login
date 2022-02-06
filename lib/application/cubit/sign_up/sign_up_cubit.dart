@@ -47,7 +47,8 @@ class SignUpCubit extends Cubit<SignUpState> {
     final name = Name.dirty(value);
     emit(state.copyWith(
       name: name,
-      status: Formz.validate([name, state.email, state.password]),
+      status:
+          Formz.validate([name, state.email, state.password, state.rePassword]),
     ));
   }
 

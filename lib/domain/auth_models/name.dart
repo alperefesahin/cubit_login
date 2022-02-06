@@ -15,7 +15,7 @@ class Name extends FormzInput<String, NameError> {
     if (value.isEmpty == true || value == "") {
       return NameError.empty;
     }
-    return _nameRegExp.hasMatch(value)
+    return _nameRegExp.hasMatch(value) && value.length < 10
         ? null
         : value.isEmpty
             ? null

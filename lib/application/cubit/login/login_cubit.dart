@@ -39,7 +39,6 @@ class LoginCubit extends Cubit<LoginState> {
           email: state.email.value, password: state.password.value);
       emit(state.copyWith(status: FormzStatus.submissionSuccess));
     } on FirebaseAuthException catch (error) {
-      print(error.message);
       emit(state.copyWith(
           exceptionError: error.message.toString(),
           status: FormzStatus.submissionFailure));
@@ -90,7 +89,7 @@ class LoginCubit extends Cubit<LoginState> {
       Map<String, String>? parameters}) async {
     await FirebaseAuthOAuth()
         .openSignInFlow(provider, scopes, parameters)
-        .then((value) => print(value));
+        .then((value) => value);
   }
 
   void signInWithGithub() async {
