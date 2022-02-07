@@ -4,7 +4,18 @@ A Flutter project which is created by Cubit/BLoC and Firebase.
 The differ from the other bloc login projects, this project has social login instances and sign up properties, and while It does this, It uses freezed package which is very helpful for the state management. Also there are snackbars for the error handling, and login processes. For instance If you try to sign up with existing account, snackbar will give an error.
 Additionally, thanks to flow_builder package, we can check via state, is user signed in or not, and with this, we can route the user. If you have already logged in, home page will start, but if you are not, then you will start sign in page.
 
-Here you can reach the medium article of the project: https://medium.com/@sahinefe/bloc-pattern-for-login-bloc-login-in-flutter-551fd05beb99
+Here you can reach the medium article of the project:
+
+Part1: https://medium.com/@sahinefe/bloc-pattern-for-login-bloc-login-in-flutter-551fd05beb99
+
+Part2: https://medium.com/@sahinefe/cubit-freezed-combination-to-manage-the-state-powerfully-in-flutter-2022-version-e64339e7c641
+
+## Updates
+ -->Cubits re-created with Freezed package.
+ 
+ -->Exceptions, and snackbars have added.
+ 
+ -->Re-password feature has added.
 
 ## Packages
   *flutter_bloc
@@ -23,6 +34,8 @@ Here you can reach the medium article of the project: https://medium.com/@sahine
   
 ## Mini Notes
 If you want to use Apple sign in and Twitter sign in methods, you need to configure them from firestore. Twitter and Apple must give  developer permits to you.
+
+
 
 ## Gifs and Screenshots from the app
 ![sign up](https://user-images.githubusercontent.com/67283777/137185403-3dde3c7e-ee01-490c-9570-359a032a9830.gif)
