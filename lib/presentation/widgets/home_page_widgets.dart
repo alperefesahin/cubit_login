@@ -11,15 +11,17 @@ class HomePageBody extends StatelessWidget {
     return BlocBuilder<LoginCubit, LoginState>(
       builder: (context, state) {
         return Center(
-          child: Container(
-            margin: const EdgeInsets.all(100),
-            child: CupertinoButton(
-                padding: EdgeInsets.zero,
-                child: const Text('Logout'),
-                disabledColor: Colors.blueAccent.withOpacity(0.6),
-                color: Colors.blueAccent,
-                onPressed: () => context.read<LoginCubit>().signOut()),
-          ),
+          child: CupertinoButton(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                  width: MediaQuery.of(context).size.width / 2,
+                  height: MediaQuery.of(context).size.height / 20,
+                  child: const Center(
+                    child: Text('Logout'),
+                  )),
+              disabledColor: Colors.blueAccent.withOpacity(0.6),
+              color: Colors.blueAccent,
+              onPressed: () => context.read<LoginCubit>().signOut()),
         );
       },
     );
