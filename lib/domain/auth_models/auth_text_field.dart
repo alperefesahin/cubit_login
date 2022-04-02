@@ -22,10 +22,10 @@ class AuthTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    UnderlineInputBorder border = const UnderlineInputBorder(
-        borderSide: BorderSide(color: Colors.blueAccent, width: 2));
-    UnderlineInputBorder errorBorder = const UnderlineInputBorder(
-        borderSide: BorderSide(color: Colors.redAccent, width: 2));
+    UnderlineInputBorder border =
+        const UnderlineInputBorder(borderSide: BorderSide(color: Colors.blueAccent, width: 2));
+    UnderlineInputBorder errorBorder =
+        const UnderlineInputBorder(borderSide: BorderSide(color: Colors.redAccent, width: 2));
     return Padding(
       padding: padding,
       child: TextFormField(

@@ -1,4 +1,4 @@
-import 'package:bloc_login/application/cubit/login/login_cubit.dart';
+import 'package:bloc_login/application/login/login_cubit.dart';
 import 'package:bloc_login/domain/auth_models/auth_text_field.dart';
 import 'package:bloc_login/domain/auth_models/email.dart';
 import 'package:bloc_login/domain/auth_models/password.dart';

@@ -1,4 +1,4 @@
-import 'package:bloc_login/application/cubit/sign_up/sign_up_cubit.dart';
+import 'package:bloc_login/application/sign_up/sign_up_cubit.dart';
 import 'package:bloc_login/presentation/widgets/sign_up_page_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

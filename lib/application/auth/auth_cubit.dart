@@ -6,7 +6,7 @@ part 'auth_state.dart';
 part 'auth_cubit.freezed.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(const AuthState.initial(isSignedIn: false)) {
+  AuthCubit() : super(const AuthState.initial()) {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
         return emit(state.copyWith(isSignedIn: false));

@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
-  _Initial initial({required bool isSignedIn}) {
+  _Initial initial({bool isSignedIn = false}) {
     return _Initial(
       isSignedIn: isSignedIn,
     );
@@ -131,8 +131,9 @@ class __$InitialCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Initial implements _Initial {
-  const _$_Initial({required this.isSignedIn});
+  const _$_Initial({this.isSignedIn = false});
 
+  @JsonKey()
   @override
   final bool isSignedIn;
 
@@ -217,7 +218,7 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements AuthState {
-  const factory _Initial({required bool isSignedIn}) = _$_Initial;
+  const factory _Initial({bool isSignedIn}) = _$_Initial;
 
   @override
   bool get isSignedIn;
