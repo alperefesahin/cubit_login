@@ -12,9 +12,7 @@ class SignUpForm extends StatelessWidget {
     return BlocConsumer<SignUpCubit, SignUpState>(
         listener: (context, state) {
           if (state.status.isSubmissionFailure) {
-            var snackBar = SnackBar(
-                content: Text(state.exceptionError),
-                backgroundColor: Colors.red);
+            var snackBar = SnackBar(content: Text(state.exceptionError), backgroundColor: Colors.red);
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
           } else if (state.status.isSubmissionSuccess) {
             var snackBar = const SnackBar(
@@ -33,12 +31,12 @@ class SignUpForm extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        SignUpText(),
-                        NameInputField(),
-                        EmailInputField(),
-                        PasswordInputField(),
-                        RePasswordInputField(),
-                        SignUp(),
+                        signUpText(),
+                        nameInputField(context, state),
+                        emailInputField(context, state),
+                        passwordInputField(context, state),
+                        rePasswordInputField(context, state),
+                        signUp(context, state),
                       ],
                     ),
                   ),

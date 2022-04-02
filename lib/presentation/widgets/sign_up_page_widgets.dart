@@ -8,7 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-Widget SignUpText() {
+Padding signUpText() {
   return const Padding(
     padding: EdgeInsets.only(bottom: 30.0, top: 30.0),
     child: Text(
@@ -19,81 +19,57 @@ Widget SignUpText() {
   );
 }
 
-Widget NameInputField() {
-  return BlocBuilder<SignUpCubit, SignUpState>(
-      buildWhen: (previous, current) => previous.name != current.name,
-      builder: (context, state) {
-        return AuthTextField(
-          padding: const EdgeInsets.symmetric(vertical: 10),
-          hint: 'Name Surname',
-          keyboardType: TextInputType.name,
-          error: state.name.error?.name,
-          onChanged: (name) => context.read<SignUpCubit>().nameChanged(name),
-        );
-      });
-}
-
-Widget EmailInputField() {
-  return BlocBuilder<SignUpCubit, SignUpState>(
-      buildWhen: (previous, current) => previous.email != current.email,
-      builder: (context, state) {
-        return AuthTextField(
-          padding: const EdgeInsets.symmetric(vertical: 10),
-          hint: 'Email',
-          keyboardType: TextInputType.emailAddress,
-          error: state.email.error?.name,
-          onChanged: (email) => context.read<SignUpCubit>().emailChanged(email),
-        );
-      });
-}
-
-Widget PasswordInputField() {
-  return BlocBuilder<SignUpCubit, SignUpState>(
-    builder: (context, state) {
-      return AuthTextField(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        hint: 'Password',
-        isPasswordField: true,
-        keyboardType: TextInputType.text,
-        error: state.password.error?.name,
-        onChanged: (password) =>
-            context.read<SignUpCubit>().passwordChanged(password),
-      );
-    },
+AuthTextField nameInputField(BuildContext context, SignUpState state) {
+  return AuthTextField(
+    padding: const EdgeInsets.symmetric(vertical: 10),
+    hint: 'Name Surname',
+    keyboardType: TextInputType.name,
+    error: state.name.error?.name,
+    onChanged: (name) => context.read<SignUpCubit>().nameChanged(name),
   );
 }
 
-Widget RePasswordInputField() {
-  return BlocBuilder<SignUpCubit, SignUpState>(
-    builder: (context, state) {
-      return AuthTextField(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        hint: 'Re-Password',
-        isPasswordField: true,
-        keyboardType: TextInputType.text,
-        error: state.rePassword.error?.name,
-        onChanged: (rePassword) =>
-            context.read<SignUpCubit>().rePasswordChanged(rePassword),
-      );
-    },
+AuthTextField emailInputField(BuildContext context, SignUpState state) {
+  return AuthTextField(
+    padding: const EdgeInsets.symmetric(vertical: 10),
+    hint: 'Email',
+    keyboardType: TextInputType.emailAddress,
+    error: state.email.error?.name,
+    onChanged: (email) => context.read<SignUpCubit>().emailChanged(email),
   );
 }
 
-Widget SignUp() {
-  return BlocBuilder<SignUpCubit, SignUpState>(
-    builder: (context, state) {
-      return Padding(
-        padding: const EdgeInsets.only(top: 20),
-        child: CupertinoButton(
-          padding: EdgeInsets.zero,
-          child: const Text('Sign Up'),
-          disabledColor: Colors.blueAccent.withOpacity(0.6),
-          color: Colors.blueAccent,
-          onPressed: state.displaySignUpButton
-              ? () => context.read<SignUpCubit>().signUpWithCredentials()
-              : null,
-        ),
-      );
-    },
+AuthTextField passwordInputField(BuildContext context, SignUpState state) {
+  return AuthTextField(
+    padding: const EdgeInsets.symmetric(vertical: 10),
+    hint: 'Password',
+    isPasswordField: true,
+    keyboardType: TextInputType.text,
+    error: state.password.error?.name,
+    onChanged: (password) => context.read<SignUpCubit>().passwordChanged(password),
+  );
+}
+
+AuthTextField rePasswordInputField(BuildContext context, SignUpState state) {
+  return AuthTextField(
+    padding: const EdgeInsets.symmetric(vertical: 10),
+    hint: 'Re-Password',
+    isPasswordField: true,
+    keyboardType: TextInputType.text,
+    error: state.rePassword.error?.name,
+    onChanged: (rePassword) => context.read<SignUpCubit>().rePasswordChanged(rePassword),
+  );
+}
+
+Padding signUp(BuildContext context, SignUpState state) {
+  return Padding(
+    padding: const EdgeInsets.only(top: 20),
+    child: CupertinoButton(
+      padding: EdgeInsets.zero,
+      child: const Text('Sign Up'),
+      disabledColor: Colors.blueAccent.withOpacity(0.6),
+      color: Colors.blueAccent,
+      onPressed: state.displaySignUpButton ? () => context.read<SignUpCubit>().signUpWithCredentials() : null,
+    ),
   );
 }
