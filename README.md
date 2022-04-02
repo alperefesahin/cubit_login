@@ -38,7 +38,7 @@ If you want to use Apple sign in and Twitter sign in methods, you need to config
 
 
 ## Gifs and Screenshots from the app
-![sign up](https://user-images.githubusercontent.com/67283777/137185403-3dde3c7e-ee01-490c-9570-359a032a9830.gif)
+![sign_up](https://user-images.githubusercontent.com/67283777/161388688-2bee8905-0dfc-4d9d-a9b9-f1c0d7b90ce4.gif)
 ![login](https://user-images.githubusercontent.com/67283777/137185419-1d9aa65a-4db7-4c8c-a852-97058bb7021c.gif)
 ![google](https://user-images.githubusercontent.com/67283777/137185425-a7ebee4e-e8ff-48bf-a2bc-001ba9f39ae8.gif)
 ![reset](https://user-images.githubusercontent.com/67283777/137185431-9731b9df-f295-48ee-b200-e2daaa0e0895.gif)
