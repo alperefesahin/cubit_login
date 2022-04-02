@@ -15,10 +15,10 @@ class LoginForm extends StatelessWidget {
           listenWhen: (p, c) => p.status != c.status,
           listener: (context, state) {
             if (state.status.isSubmissionFailure) {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBarWhenFailure(
-                  snackBarFailureText: state.exceptionError));
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(snackBarWhenFailure(snackBarFailureText: state.exceptionError));
             } else if (state.status.isSubmissionSuccess) {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBarWhenSuccess());
+              ScaffoldMessenger.of(context).showSnackBar(snackBarWhenSuccess());
             }
           },
           builder: (context, state) => Stack(
@@ -30,24 +30,24 @@ class LoginForm extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          LoginText(),
-                          EmailInputField(),
-                          PasswordInputField(),
+                          loginText(),
+                          emailInputField(context, state),
+                          passwordInputField(context, state),
                           Row(
                             children: [
-                              Expanded(child: SignUpButton(context)),
-                              Expanded(child: Login()),
-                              Expanded(child: ForgotPassword())
+                              Expanded(child: signUpButton(context)),
+                              Expanded(child: login(context, state)),
+                              Expanded(child: forgotPassword(context, state))
                             ],
                           ),
                           Column(
                             children: [
-                              SeperatedText(),
-                              SignInWithGoogle(),
-                              SignInWithGithub(),
-                              SignInWithTwitter(),
-                              SignInWithApple(),
-                              SignInWithMicrosoft(),
+                              seperatedText(),
+                              signInWithGoogle(context, state),
+                              signInWithGithub(context, state),
+                              signInWithTwitter(context, state),
+                              signInWithApple(context, state),
+                              signInWithMicrosoft(context, state),
                             ],
                           )
                         ],

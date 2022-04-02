@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: BlocProvider(
         create: (_) => LoginCubit(),
-        child: HomePageBody(),
+        child: const HomePageBody(),
       ),
     );
   }
