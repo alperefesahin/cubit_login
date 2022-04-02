@@ -16,6 +16,8 @@ Part2: https://medium.com/@sahinefe/cubit-freezed-combination-to-manage-the-stat
  -->Exceptions, and snackbars have added.
  
  -->Re-password feature has added.
+ 
+ -->CPU improvements (now, faster than before!)
 
 ## Packages
   *flutter_bloc
